@@ -7,6 +7,12 @@ import FullButton from "../Components/FullButton";
 class Home extends React.Component {
     static navigationOptions = {
         title: 'Home',
+        headerRight: (
+            <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+            />
+        ),
     };
     render() {
         return (
