@@ -2,11 +2,14 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import Config from '../Config/DebugConfig'
 import createSagaMiddleware from 'redux-saga'
 import ScreenTracking from './ScreenTrackingMiddleware'
+import logger from 'redux-logger'
 
 export default (rootReducer, rootSaga) => {
 
   const middleware = []
   const enhancers = []
+
+    middleware.push(logger)
 
   middleware.push(ScreenTracking)
 

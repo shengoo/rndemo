@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Text, View, ActivityIndicator, FlatList} from "react-native";
+import {Button, Text, View, ActivityIndicator, FlatList, RefreshControl} from "react-native";
 import FullButton from "../Components/FullButton";
 import {connect} from "react-redux";
 import GithubActions from '../Redux/GithubRedux'
@@ -41,7 +41,12 @@ class UserList extends React.Component {
                 {
                     users && (
                         <FlatList
-                            refreshing={refreshing}
+                            refreshControl={
+                                <RefreshControl
+                                    refreshing={refreshing}
+                                    onRefresh={() => this.props.refreshUsers()}
+                                />
+                            }
                             data={users}
                             renderItem={({item}) => <UserListItem key={item.id} data={item} />}
                         />
@@ -59,6 +64,7 @@ const stateToProps = state => {
 };
 
 const dispatchToProps = (dispatch) => ({
-    fetchUsers: () => dispatch(GithubActions.userRequest())
+    fetchUsers: () => dispatch(GithubActions.userRequest()),
+    refreshUsers: () => dispatch(GithubActions.refreshRequest()),
 })
 export default connect(stateToProps,dispatchToProps)(UserList)
