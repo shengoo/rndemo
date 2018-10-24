@@ -43,8 +43,9 @@ const UserListTab = createStackNavigator(
 
 const TabNavigator = createBottomTabNavigator(
     {
-        Home: HomeStack,
         UserList: UserListTab,
+        Home: HomeStack,
+        // UserList: UserListTab,
         Settings: SettingsStack,
     },
     {

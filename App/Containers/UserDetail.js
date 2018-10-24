@@ -1,37 +1,26 @@
 import React from "react";
-import {Button, Text, View} from "react-native";
+import {Button, Text, View, Image} from "react-native";
 import FullButton from "../Components/FullButton";
-import {connect} from "react-redux";
-import GithubActions from '../Redux/GithubRedux'
 
 
 class UserDetail extends React.Component {
-    static navigationOptions = {
-        title: 'Home',
-        headerRight: (
-            <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-            />
-        ),
+
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.getParam('login', 'A Nested Details Screen'),
+        };
     };
     render() {
+        const {navigation} = this.props;
+        const avatarUrl = navigation.getParam('avatar_url')
+        const login = navigation.getParam('login')
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Home Screen</Text>
-                <Button
-                    title="Go to Details"
-                    onPress={() => {
-                        this.props.navigation.navigate('Details', {
-                            itemId: 86,
-                            otherParam: 'anything you want here',
-                        });
-                    }}
+                <Image
+                    source={{uri: avatarUrl}}
+                    style={{width: 100, height: 100}}
                 />
-                <FullButton
-                    text='A FullButton'
-                    onPress={() => window.alert('Full Button Pressed!')}
-                />
+                <Text>{login}</Text>
             </View>
         );
     }

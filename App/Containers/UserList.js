@@ -8,7 +8,7 @@ import UserListItem from "../Components/UserListItem";
 
 class UserList extends React.Component {
     static navigationOptions = {
-        title: 'User List',
+        title: 'Github人物',
     };
     componentDidMount(){
         this.props.fetchUsers();
@@ -16,12 +16,12 @@ class UserList extends React.Component {
     render() {
         const {users } = this.props;
         return (
-            <View style={{ flex: 1, alignItems: 'center',  }}>
+            <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
                 {
                     users ? (
                         <FlatList
                             data={users}
-                            renderItem={({item}) => <UserListItem key={item.id} {...item} />}
+                            renderItem={({item}) => <UserListItem key={item.id} data={item} />}
                         />
                     ): (
                         <ActivityIndicator />
