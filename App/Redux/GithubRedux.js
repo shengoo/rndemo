@@ -17,12 +17,6 @@ export const INITIAL_STATE = Immutable({
 })
 
 
-export const GithubSelectors = {
-    selectAvatar: state => state.github.avatar
-}
-
-
-// request the avatar for a user
 export const request = (state, { lastUserId = state.users ? state.users[state.users.length - 1 ].id : 0 }) =>
     state.merge({ fetching: true,  })
 

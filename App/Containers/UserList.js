@@ -14,17 +14,37 @@ class UserList extends React.Component {
         this.props.fetchUsers();
     }
     render() {
-        const {users } = this.props;
+        const {github} = this.props;
+        const {fetching} = github;
+
+
+        if(fetching){
+            return (
+                <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
+                    <ActivityIndicator size='large' color='green'/>
+                </View>
+            )
+        }
+
+        const {error} = github;
+        if(error){
+            return (
+                <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
+                    <Text>Error</Text>
+                </View>
+            )
+        }
+
+        const { users, refreshing } = github;
         return (
             <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
                 {
-                    users ? (
+                    users && (
                         <FlatList
+                            refreshing={refreshing}
                             data={users}
                             renderItem={({item}) => <UserListItem key={item.id} data={item} />}
                         />
-                    ): (
-                        <ActivityIndicator />
                     )
                 }
             </View>
@@ -34,7 +54,7 @@ class UserList extends React.Component {
 
 const stateToProps = state => {
     return {
-        users: state.github.users,
+        github: state.github,
     }
 };
 
