@@ -1,4 +1,6 @@
+import React from "react";
 import {createBottomTabNavigator, createStackNavigator, StackNavigator} from "react-navigation";
+
 import Home from "../Containers/Home";
 import Details from "../Containers/Details";
 import Settings from "../Containers/Settings";
@@ -11,7 +13,6 @@ const HomeStack = StackNavigator(
         Details: Details,
     },
     {
-        // initialRouteName: 'Home',
         navigationOptions: {
             headerBackTitle: '返回'
         }
@@ -33,8 +34,13 @@ const SettingsStack = createStackNavigator(
 const TabNavigator = createBottomTabNavigator(
     {
         Home: HomeStack,
-        // Home: Home2,
         Settings: SettingsStack,
+    },
+    {
+        tabBarOptions: {
+            activeTintColor: 'blue',
+            inactiveTintColor: 'gray',
+        },
     }
 );
 
