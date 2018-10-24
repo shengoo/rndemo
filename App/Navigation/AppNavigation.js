@@ -7,6 +7,7 @@ import Settings from "../Containers/Settings";
 import Profile from "../Containers/Profile";
 
 
+
 const HomeStack = StackNavigator(
     {
         Home: Home,

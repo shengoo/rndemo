@@ -1,6 +1,8 @@
 import React from "react";
 import {Button, Text, View} from "react-native";
 
+import NavigationService from '../Navigation/NavigationService'
+
 
 class Details extends React.Component {
     // static navigationOptions = {
@@ -27,7 +29,7 @@ class Details extends React.Component {
                 />
                 <Button
                     title="Go to Home"
-                    onPress={() => this.props.navigation.navigate('Home')}
+                    onPress={() => NavigationService.navigate('Home')}
                 />
                 <Button
                     title="Go back"
