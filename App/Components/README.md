@@ -1,2 +1,1 @@
-### Components Folder
-All components are stored and organized here
+这里放无状态组件

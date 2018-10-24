@@ -7,12 +7,23 @@
     "test": "jest"
   },
   "dependencies": {
+    "apisauce": "^1.0.0",
     "expo": "^30.0.1",
     "prop-types": "latest",
+    "ramda": "^0.25.0",
+    "ramdasauce": "^2.1.0",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.3",
-    "react-navigation": "^2.18.0",
-    "react-redux": "^5.0.7"
+    "react-navigation": "2.2.5",
+    "react-navigation-redux-helpers": "^2.0.6",
+    "react-redux": "^5.0.7",
+    "reactotron-react-native": "^2.1.0",
+    "reactotron-redux": "^2.1.0",
+    "reactotron-redux-saga": "^2.1.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "reduxsauce": "^1.0.0",
+    "seamless-immutable": "^7.1.4"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

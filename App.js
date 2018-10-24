@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * Sample React Native App2
  * https://github.com/facebook/react-native
  *
  * @format
@@ -19,12 +19,12 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-// export default class App extends Component<Props> {
+// export default class App2 extends Component<Props> {
 //   render() {
 //     return (
 //       <View style={styles.container}>
 //         <Text style={styles.welcome}>Welcome to React Native!。。。</Text>
-//         <Text style={styles.instructions}>To get started, edit App.js</Text>
+//         <Text style={styles.instructions}>To get started, edit App2.js</Text>
 //         <Text style={styles.instructions}>{instructions}</Text>
 //       </View>
 //     );
@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
 class HomeScreen extends React.Component {
     static navigationOptions = {
         title: 'Home',
-        headerStyle: {
-            backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-        },
+        // headerStyle: {
+        //     backgroundColor: '#f4511e',
+        // },
+        // headerTintColor: '#fff',
+        // headerTitleStyle: {
+        //     fontWeight: 'bold',
+        // },
     };
   render() {
     return (

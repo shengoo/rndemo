@@ -1,22 +1,30 @@
-import React from "react";
-import { StackNavigator } from "react-navigation";
-import styles from "./Styles/NavigationStyles";
+import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
+import Home from "../Containers/Home";
+import Details from "../Containers/Details";
+import Settings from "../Containers/Settings";
+import Profile from "../Containers/Profile";
 
-// screens identified by the router
-import Login from "../Containers/LoginScreen";
-import LaunchScreen from "../Containers/LaunchScreen";
-import NavigationDrawer from "./NavigationDrawer";
 
-const PrimaryNav = StackNavigator(
-	{
-		Login: { screen: Login },
-		LaunchScreen: { screen: LaunchScreen },
-		NavigationDrawer: { screen: NavigationDrawer },
-	},
-	{
-		initialRouteName: "Login",
-		headerMode: "none",
-	}
+const HomeStack = createStackNavigator(
+    {
+        Home: Home,
+        Details: Details,
+    },
+    {
+        initialRouteName: 'Home',
+    }
 );
 
-export default PrimaryNav;
+const SettingsStack = createStackNavigator({
+    Settings: Settings,
+    Profile: Profile,
+});
+
+const TabNavigator = createBottomTabNavigator(
+    {
+        Home: HomeStack,
+        Settings: SettingsStack,
+    }
+);
+
+export default TabNavigator
