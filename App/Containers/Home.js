@@ -1,7 +1,6 @@
 import React from "react";
 import {Button, Text, View} from "react-native";
-import AlertMessage from "../Components/AlertMessage";
-import RoundedButton from "../Components/RoundedButton";
+import FullButton from "../Components/FullButton";
 
 
 
@@ -22,10 +21,9 @@ class Home extends React.Component {
                         });
                     }}
                 />
-                <AlertMessage title={'alert'}/>
-                <RoundedButton
-                    text='real buttons have curves'
-                    onPress={() => window.alert('Rounded Button Pressed!')}
+                <FullButton
+                    text='A FullButton'
+                    onPress={() => window.alert('Full Button Pressed!')}
                 />
             </View>
         );
