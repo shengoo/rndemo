@@ -1,14 +1,16 @@
 import React from "react";
-import {createBottomTabNavigator, createStackNavigator, StackNavigator} from "react-navigation";
+import {createBottomTabNavigator, createStackNavigator } from "react-navigation";
 
 import Home from "../Containers/Home";
 import Details from "../Containers/Details";
 import Settings from "../Containers/Settings";
 import Profile from "../Containers/Profile";
+import UserList from "../Containers/UserList";
+import UserDetail from "../Containers/UserDetail";
 
 
 
-const HomeStack = StackNavigator(
+const HomeStack = createStackNavigator(
     {
         Home: Home,
         Details: Details,
@@ -32,9 +34,17 @@ const SettingsStack = createStackNavigator(
         }
     });
 
+const UserListTab = createStackNavigator(
+    {
+        UserList: UserList,
+        UserDetail: UserDetail
+    }
+)
+
 const TabNavigator = createBottomTabNavigator(
     {
         Home: HomeStack,
+        UserList: UserListTab,
         Settings: SettingsStack,
     },
     {

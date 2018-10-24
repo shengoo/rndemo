@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import GithubActions from '../Redux/GithubRedux'
 
 
-class Home extends React.Component {
+class UserDetail extends React.Component {
     static navigationOptions = {
         title: 'Home',
         headerRight: (
@@ -37,4 +37,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default UserDetail
