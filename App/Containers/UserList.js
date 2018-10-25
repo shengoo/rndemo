@@ -49,6 +49,7 @@ class UserList extends React.Component {
                             data={users}
                             renderItem={({item}) => <UserListItem key={item.id} data={item} />}
                             onEndReached={() => this.props.fetchMore(users[users.length - 1].id)}
+                            keyExtractor={item => `${item.id}`}
                         />
                     )
                 }

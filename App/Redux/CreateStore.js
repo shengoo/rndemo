@@ -1,7 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux'
-import Config from '../Config/DebugConfig'
 import createSagaMiddleware from 'redux-saga'
-import ScreenTracking from './ScreenTrackingMiddleware'
 import logger from 'redux-logger'
 
 export default (rootReducer, rootSaga) => {
@@ -11,16 +9,12 @@ export default (rootReducer, rootSaga) => {
 
     middleware.push(logger)
 
-    middleware.push(ScreenTracking)
-
-    const sagaMonitor = Config.useReactotron ? console.tron.createSagaMonitor() : null
-    const sagaMiddleware = createSagaMiddleware({sagaMonitor})
+    const sagaMiddleware = createSagaMiddleware()
     middleware.push(sagaMiddleware)
 
     enhancers.push(applyMiddleware(...middleware))
 
-    const createAppropriateStore = Config.useReactotron ? console.tron.createStore : createStore
-    const store = createAppropriateStore(rootReducer, compose(...enhancers))
+    const store = createStore(rootReducer, compose(...enhancers))
 
     let sagasManager = sagaMiddleware.run(rootSaga)
 
