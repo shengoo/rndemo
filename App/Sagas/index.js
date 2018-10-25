@@ -11,5 +11,6 @@ export default function* root() {
         // some sagas receive extra parameters in addition to an action
         takeLatest(GithubTypes.USER_REQUEST, getUsers, api),
         takeLatest(GithubTypes.REFRESH_REQUEST, refreshUsers, api),
+        takeLatest(GithubTypes.FETCH_MORE_REQUEST, getUsers, api)
     ])
 }

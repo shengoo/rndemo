@@ -48,6 +48,7 @@ class UserList extends React.Component {
                             }
                             data={users}
                             renderItem={({item}) => <UserListItem key={item.id} data={item} />}
+                            onEndReached={() => this.props.fetchMore(users[users.length - 1].id)}
                         />
                     )
                 }
@@ -65,5 +66,6 @@ const stateToProps = state => {
 const dispatchToProps = (dispatch) => ({
     fetchUsers: () => dispatch(GithubActions.userRequest()),
     refreshUsers: () => dispatch(GithubActions.refreshRequest()),
+    fetchMore: (id) => dispatch(GithubActions.fetchMoreRequest(id))
 })
 export default connect(stateToProps,dispatchToProps)(UserList)

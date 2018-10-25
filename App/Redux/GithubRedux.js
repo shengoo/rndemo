@@ -8,7 +8,11 @@ const { Types, Creators } = createActions({
     userFailure: ['error'],
     refreshRequest: ['request'],
     refreshSuccess: ['users'],
-    refreshFailure: ['error']
+    refreshFailure: ['error'],
+    fetchMoreRequest: ['lastUserId'],
+    fetchMoreSuccess: ['users'],
+    fetchMoreFailure: ['error'],
+
 })
 
 export const GithubTypes = Types
@@ -43,6 +47,19 @@ export const refreshSuccess = (state, action) => {
 
 export const refreshFailure = (state, action) => state.merge({refreshing: false, error: true})
 
+export const fetchMoreRequest = (state, action) => state.merge({fetchingMore: true})
+
+export const fetchMoreSuccess = (state, action) => {
+    let { users } = action
+    if(state.users){
+        users = state.users.concat(users)
+    }
+    return state.merge({ fetchingMore: false, error: null, users })
+}
+
+export const fetchMoreFailure = (state) =>
+    state.merge({ fetchingMore: false, })
+
 
 /* ------------- Hookup Reducers To Types ------------- */
 
@@ -54,5 +71,9 @@ export const reducer = createReducer(INITIAL_STATE, {
     [Types.REFRESH_REQUEST]: refreshRequest,
     [Types.REFRESH_SUCCESS]: refreshSuccess,
     [Types.REFRESH_FAILURE]: refreshFailure,
+
+    [Types.FETCH_MORE_REQUEST]: fetchMoreRequest,
+    [Types.FETCH_MORE_SUCCESS]: fetchMoreSuccess,
+    [Types.FETCH_MORE_FAILURE]: fetchMoreFailure,
 
 })
