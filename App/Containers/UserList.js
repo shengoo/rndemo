@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Text, View, ActivityIndicator, FlatList, RefreshControl} from "react-native";
-import FullButton from "../Components/FullButton";
 import {connect} from "react-redux";
 import GithubActions from '../Redux/GithubRedux'
 import UserListItem from "../Components/UserListItem";

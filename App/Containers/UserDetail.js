@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Text, View, Image} from "react-native";
-import FullButton from "../Components/FullButton";
 
 
 class UserDetail extends React.Component {

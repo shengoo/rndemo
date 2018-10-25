@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Text, View} from "react-native";
-import FullButton from "../Components/FullButton";
 import {connect} from "react-redux";
 import GithubActions from '../Redux/GithubRedux'
 
@@ -27,10 +26,6 @@ class Home extends React.Component {
                             otherParam: 'anything you want here',
                         });
                     }}
-                />
-                <FullButton
-                    text='A FullButton'
-                    onPress={() => window.alert('Full Button Pressed!')}
                 />
             </View>
         );
