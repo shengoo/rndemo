@@ -18,6 +18,7 @@ export default ({data, dispatch}) => (
     >
         <View style={styles.row}>
             <Text style={styles.title}>{data.title.rendered}</Text>
+            <Text style={styles.date}>{data.date}</Text>
         </View>
     </TouchableOpacity>
 )

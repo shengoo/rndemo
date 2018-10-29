@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "antd-mobile-rn": "^2.3.0",
     "apisauce": "^1.0.0",
     "prop-types": "latest",
     "ramda": "^0.25.0",

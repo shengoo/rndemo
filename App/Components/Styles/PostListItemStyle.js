@@ -5,8 +5,8 @@ export default StyleSheet.create({
     row: {
         flex: 1,
         margin: Metrics.baseMargin,
-        flexDirection: 'row',
-        alignItems: 'center',
+        // flexDirection: 'row',
+        // alignItems: 'center',
         backgroundColor: '#FFF',
     },
     title: {
@@ -14,5 +14,8 @@ export default StyleSheet.create({
         color: '#000',
         fontSize: Fonts.size.medium,
         fontFamily: Fonts.type.bold
+    },
+    date: {
+        margin: 18,
     }
 })
