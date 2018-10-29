@@ -1,12 +1,13 @@
 import { createReducer, createActions } from 'reduxsauce' // https://github.com/infinitered/reduxsauce
 import Immutable from 'seamless-immutable' // https://github.com/rtfeldman/seamless-immutable
 
-
+// The keys of the object will become keys of the Creators.
+// They will also become the keys of the Types after being converted to USER_REQUEST.
 const { Types, Creators } = createActions({
-    userRequest: ['lastUserId'],
+    userRequest: null,
     userSuccess: ['users'],
     userFailure: ['error'],
-    refreshRequest: ['request'],
+    refreshRequest: null,
     refreshSuccess: ['users'],
     refreshFailure: ['error'],
     fetchMoreRequest: ['lastUserId'],

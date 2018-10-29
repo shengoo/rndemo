@@ -1,22 +1,22 @@
 import React from "react";
 import {Button, Text, View, ActivityIndicator, FlatList, RefreshControl} from "react-native";
 import {connect} from "react-redux";
-import GithubActions from '../Redux/GithubRedux'
-import UserListItem from "../Components/UserListItem";
+import {fetchPosts, PostTypes} from "../Redux/PostsRedux";
+import PostListItem from "../Components/PostListItem";
 
 
-class UserList extends React.Component {
+class PostList extends React.Component {
     // 配置导航标题
     static navigationOptions = {
-        title: 'Github人物',
+        title: 'Posts',
     };
     componentDidMount(){
         // 网络请求需要在componentDidMount中发起
-        this.props.fetchUsers();
+        this.props.fetchPosts();
     }
     render() {
-        const {github} = this.props;
-        const {fetching} = github;
+        const {data, dispatch} = this.props;
+        const {fetching} = data;
 
         // 网络请求要让用户感知到，一个loading即可
         if(fetching){
@@ -28,7 +28,7 @@ class UserList extends React.Component {
         }
 
         // 有错误一定要显示
-        const {error} = github;
+        const {error} = data;
         if(error){
             return (
                 <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
@@ -39,22 +39,22 @@ class UserList extends React.Component {
             )
         }
 
-        const { users, refreshing } = github;
+        const { posts, refreshing } = data;
         // 下面是正常显示数据
         return (
             <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
                 {
-                    users && (
+                    posts && (
                         <FlatList
-                            refreshControl={
-                                <RefreshControl
-                                    refreshing={refreshing}
-                                    onRefresh={() => this.props.refreshUsers()}
-                                />
-                            }
-                            data={users}
-                            renderItem={({item}) => <UserListItem key={item.id} data={item} />}
-                            onEndReached={() => this.props.fetchMore(users[users.length - 1].id)}
+                            // refreshControl={
+                            //     <RefreshControl
+                            //         refreshing={refreshing}
+                            //         onRefresh={() => this.props.refreshUsers()}
+                            //     />
+                            // }
+                            data={posts}
+                            renderItem={({item}) => <PostListItem data={item} dispatch={dispatch} />}
+                            // onEndReached={() => this.props.fetchMore(users[users.length - 1].id)}
                             keyExtractor={item => `${item.id}`}
                         />
                     )
@@ -67,16 +67,17 @@ class UserList extends React.Component {
 // 把页面需要的state里的数据放在props上
 const stateToProps = state => {
     return {
-        github: state.github,
+        data: state.posts,
     }
 };
 
 // 把页面需要派发的action放在props上
 const dispatchToProps = (dispatch) => ({
-    fetchUsers: () => dispatch(GithubActions.userRequest()),
-    refreshUsers: () => dispatch(GithubActions.refreshRequest()),
-    fetchMore: (id) => dispatch(GithubActions.fetchMoreRequest(id))
+    dispatch,
+    fetchPosts: () => dispatch(fetchPosts()),
+    // refreshUsers: () => dispatch(GithubActions.refreshRequest()),
+    // fetchMore: (id) => dispatch(GithubActions.fetchMoreRequest(id))
 });
 
 // 导出一个有状态的组件
-export default connect(stateToProps,dispatchToProps)(UserList)
+export default connect(stateToProps,dispatchToProps)(PostList)

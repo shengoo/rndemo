@@ -5,21 +5,19 @@ import {View, Text, Image, TouchableOpacity} from 'react-native'
 import styles from './Styles/UserListItemStyle'
 // 导航服务
 import NavigationService from "../Navigation/NavigationService";
+import {selectPost} from "../Redux/PostsRedux";
 
 // 数据通过props传递进来
 // 导出一个纯函数的无状态组件
-export default ({data}) => (
+export default ({data, dispatch}) => (
     <TouchableOpacity
         onPress={() => {
-            NavigationService.navigate('UserDetail', data)
+            dispatch(selectPost(data))
+            NavigationService.navigate('PostDetail')
         }}
     >
         <View style={styles.row}>
-            <Image
-                style={styles.avatar}
-                source={{uri: data.avatar_url}}
-            />
-            <Text style={styles.name}>{data.login}</Text>
+            <Text style={styles.name}>{data.title.rendered}</Text>
         </View>
     </TouchableOpacity>
 )

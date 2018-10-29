@@ -1,5 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
 export default (rootReducer, rootSaga) => {
@@ -7,7 +8,11 @@ export default (rootReducer, rootSaga) => {
     const middleware = []
     const enhancers = []
 
-    middleware.push(logger)
+    if(__DEV__) {
+        middleware.push(logger)
+    }
+
+    middleware.push(thunk)
 
     const sagaMiddleware = createSagaMiddleware()
     middleware.push(sagaMiddleware)

@@ -4,6 +4,7 @@ import rootSaga from '../Sagas/'
 
 export const reducers = combineReducers({
     github: require('./GithubRedux').reducer,
+    posts: require('./PostsRedux').postReducer,
 })
 
 export default () => {
