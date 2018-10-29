@@ -1,0 +1,16 @@
+# react-native template to be ignored
+android/
+ios/
+.babelrc
+.buckconfig
+.flowconfig
+.gitattributes
+.gitignore
+.npmignore
+.watchmanconfig
+app.json
+package-lock.json
+yarn.lock
+
+# webstorm files
+.idea/

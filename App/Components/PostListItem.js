@@ -13,7 +13,7 @@ export default ({data, dispatch}) => (
     <TouchableOpacity
         onPress={() => {
             dispatch(selectPost(data))
-            NavigationService.navigate('PostDetail')
+            NavigationService.navigate('PostDetail', {title: data.title.rendered})
         }}
     >
         <View style={styles.row}>
