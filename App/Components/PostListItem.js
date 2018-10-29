@@ -2,7 +2,7 @@ import React from 'react'
 import {View, Text, Image, TouchableOpacity} from 'react-native'
 
 // 组件样式
-import styles from './Styles/UserListItemStyle'
+import styles from './Styles/PostListItemStyle'
 // 导航服务
 import NavigationService from "../Navigation/NavigationService";
 import {selectPost} from "../Redux/PostsRedux";
@@ -17,7 +17,7 @@ export default ({data, dispatch}) => (
         }}
     >
         <View style={styles.row}>
-            <Text style={styles.name}>{data.title.rendered}</Text>
+            <Text style={styles.title}>{data.title.rendered}</Text>
         </View>
     </TouchableOpacity>
 )
