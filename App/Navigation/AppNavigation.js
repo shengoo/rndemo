@@ -11,6 +11,7 @@ import PostList from "../Containers/PostList";
 import PostDetail from "../Containers/PostDetail";
 import Form from '../Containers/LoginForm'
 import Colors from "../Themes/Colors";
+import WebViewScreen from "../Containers/WebViewScreen";
 
 const commonNavigationOptions = {
     headerStyle: {
@@ -67,8 +68,16 @@ const FormTab = createStackNavigator({
         navigationOptions: commonNavigationOptions
     }
 )
+const WebViewTab = createStackNavigator({
+        WebViewScreen: WebViewScreen
+    },
+    {
+        navigationOptions: commonNavigationOptions
+    }
+)
 
 const TabNavigator = createBottomTabNavigator({
+        WebView: WebViewTab,
         Form: FormTab,
         PostTab: PostTab,
         UserList: UserListTab,
