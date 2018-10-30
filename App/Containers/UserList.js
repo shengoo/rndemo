@@ -3,6 +3,8 @@ import {Button, Text, View, ActivityIndicator, FlatList, RefreshControl} from "r
 import {connect} from "react-redux";
 import GithubActions from '../Redux/GithubRedux'
 import UserListItem from "../Components/UserListItem";
+import Colors from "../Themes/Colors";
+
 
 
 class UserList extends React.Component {
@@ -22,7 +24,7 @@ class UserList extends React.Component {
         if(fetching){
             return (
                 <View style={{ flex: 1, alignItems: 'stretch', justifyContent: 'center' }}>
-                    <ActivityIndicator size='large' color='green'/>
+                    <ActivityIndicator size='large' color={Colors.primaryColor}/>
                 </View>
             )
         }
