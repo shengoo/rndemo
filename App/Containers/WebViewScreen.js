@@ -1,8 +1,21 @@
 import React from "react";
-import {Button, Text, View, TouchableOpacity, WebView} from "react-native";
+import {Button, Text, View, TouchableOpacity, WebView, ActivityIndicator} from "react-native";
+import {Toast} from 'antd-mobile-rn'
 
 
 class WebViewScreen extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            loadFinish: false,
+        }
+    }
+
+    componentDidMount(){
+        Toast.loading('')
+    }
+
+
     onError = () => {
         console.log('onError')
     }
@@ -11,6 +24,7 @@ class WebViewScreen extends React.Component {
     }
     onLoadEnd = () => {
         console.log('onLoadEnd')
+        Toast.hide()
     }
     onLoadStart = () => {
         console.log('onLoadStart')
