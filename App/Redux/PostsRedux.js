@@ -27,7 +27,11 @@ export function fetchPosts(page = 1) {
         dispatch({
             type: PostTypes.FETCH_POSTS_REQUEST,
         })
-        fetch(`https://www.sheng00.com/wp-json/wp/v2/posts?page=${page}`)
+        fetch(`https://www.sheng00.com/wp-json/wp/v2/posts?page=${page}`,{
+            headers: {
+                'App-Id': 'AwesomeProject',
+            },
+        })
             .then((response) => response.json())
             .then((responseJson) => {
                 dispatch({

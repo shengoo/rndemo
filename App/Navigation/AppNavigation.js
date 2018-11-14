@@ -77,7 +77,7 @@ const WebViewTab = createStackNavigator({
 )
 
 const TabNavigator = createBottomTabNavigator({
-        WebView: WebViewTab,
+        // WebView: WebViewTab,
         Form: FormTab,
         PostTab: PostTab,
         UserList: UserListTab,
