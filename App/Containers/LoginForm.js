@@ -16,8 +16,8 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: '',
+            username: '26025946',
+            password: 'H0meL1nk',
         }
     }
 
@@ -27,13 +27,16 @@ class LoginForm extends React.Component {
             Toast.fail('用户名或密码不能为空')
             return;
         }
-        const formData = new FormData();
-        formData.append('username', username)
-        formData.append('password', password)
         fetch('http://127.0.0.1:3000/account/login',
             {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                }),
             })
             .then(response => response.json())
             .then(responseJson => {
@@ -47,7 +50,7 @@ class LoginForm extends React.Component {
             .catch((error) => {
                 console.error(error);
             });
-        Toast.loading(`登陆ing`)
+        Toast.loading(`登陆ing`, 0)
     }
 
     render() {
