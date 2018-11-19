@@ -1,0 +1,1 @@
+export const MyInfoBasic = require('./MyInfoBasic').default;

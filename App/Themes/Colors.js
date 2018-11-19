@@ -24,7 +24,8 @@ const colors = {
     border: '#483F53',
     banner: '#5F3E63',
     text: '#FFFFFF',
-    tabInactive: 'gray',
+    tabInactive: '#9399a5',
+    rowBackground: '#fff'
 }
 
 export default colors
