@@ -1,4 +1,5 @@
 import React from "react";
+import {Text} from 'react-native';
 import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
 
 import Home from "../Containers/Home";
@@ -12,6 +13,7 @@ import PostDetail from "../Containers/PostDetail";
 import Form from '../Containers/LoginForm'
 import Colors from "../Themes/Colors";
 import WebViewScreen from "../Containers/WebViewScreen";
+
 
 const commonNavigationOptions = {
     headerStyle: {
@@ -62,6 +64,7 @@ const PostTab = createStackNavigator({
 )
 
 const FormTab = createStackNavigator({
+        // Chart: LineChart,
         Form: Form
     },
     {
@@ -76,20 +79,41 @@ const WebViewTab = createStackNavigator({
     }
 )
 
+
 const TabNavigator = createBottomTabNavigator({
-        // WebView: WebViewTab,
-        Form: FormTab,
-        PostTab: PostTab,
-        UserList: UserListTab,
-        Home: HomeStack,
-        // UserList: UserListTab,
         Settings: SettingsStack,
+        Home: HomeStack,
+        // WebView: WebViewTab,
+        // Form: FormTab,
+        // PostTab: PostTab,
+        List: UserListTab,
+        // UserList: UserListTab,
     }, {
         tabBarOptions: {
             activeTintColor: Colors.primaryColor,
             inactiveTintColor: 'gray',
         },
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
+            tabBarLabel: ({focused}) => {
+                const {routeName} = navigation.state;
+                if (routeName === 'Home') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>首页</Text>;
+                } else if (routeName === 'List') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>指数</Text>;
+                }else if (routeName === 'Settings') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>我的</Text>;
+                }
+                return null;
+            },
             headerStyle: {
                 backgroundColor: Colors.primaryColor,
             },
@@ -97,7 +121,7 @@ const TabNavigator = createBottomTabNavigator({
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
-        }
+        }),
     }
 );
 

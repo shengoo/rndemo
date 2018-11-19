@@ -5,7 +5,7 @@ import {Button, Text, View, TouchableOpacity} from "react-native";
 class Settings extends React.Component {
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flex: 1 }}>
                 <Text>Settings Screen</Text>
                 <Button
                     title="Go to Profile"

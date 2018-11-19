@@ -37,7 +37,7 @@ class WebViewScreen extends React.Component {
             <View style={{ flex: 1, }}>
                 <WebView
                     style={{flex: 1}}
-                    source={{uri: 'http://www.baidu.com'}}
+                    source={{uri: 'http://localhost:3000/'}}
                     onError={this.onError}
                     onLoad={this.onLoad}
                     onLoadEnd={this.onLoadEnd}

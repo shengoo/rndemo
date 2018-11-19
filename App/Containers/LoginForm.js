@@ -27,11 +27,12 @@ class LoginForm extends React.Component {
             Toast.fail('用户名或密码不能为空')
             return;
         }
-        fetch('http://127.0.0.1:3000/account/login',
+        fetch('http://127.0.0.1:3000/api/account/login',
             {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
+                    "app-id": "odin-app",
                 },
                 body: JSON.stringify({
                     username,
