@@ -15,6 +15,7 @@
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "react-native-responsive-linechart": "^1.4.8",
+    "react-native-webview": "^2.8.1",
     "react-navigation": "2.2.5",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",

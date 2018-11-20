@@ -1,9 +1,23 @@
 import React from "react";
-import {Button, Text, View, TouchableOpacity, WebView, ActivityIndicator} from "react-native";
+import {Button, Text, View, TouchableOpacity, ActivityIndicator} from "react-native";
+import { WebView } from "react-native-webview";
 import {Toast} from 'antd-mobile-rn'
+import Colors from "../Themes/Colors";
 
 
 class WebViewScreen extends React.Component {
+
+    // static navigationOptions = ({ navigation }) => {
+    //     let tabBarVisible = false;
+    //     if (navigation.state.index > 0) {
+    //         tabBarVisible = false;
+    //     }
+    //
+    //     return {
+    //         tabBarVisible,
+    //     };
+    // };
+
     constructor(props){
         super(props)
         this.state = {
@@ -43,6 +57,7 @@ class WebViewScreen extends React.Component {
                     onLoadEnd={this.onLoadEnd}
                     onLoadStart={this.onLoadStart}
                     onMessage={this.onMessage}
+                    onLoadProgress={e => console.log(e.nativeEvent.progress)}
                 />
             </View>
         );
