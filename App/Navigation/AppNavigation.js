@@ -27,18 +27,10 @@ const commonNavigationOptions = {
 }
 
 
-const HomeStack = createStackNavigator({
+const HomeStack = createStackNavigator(
+    {
         Home: Home,
         Details: Details,
-    }, {
-        navigationOptions: commonNavigationOptions
-    }
-);
-
-
-const SettingsStack = createStackNavigator({
-        Settings: Settings,
-        Profile: Profile,
     }, {
         navigationOptions: commonNavigationOptions
     }
@@ -52,7 +44,18 @@ const UserListTab = createStackNavigator(
     {
         navigationOptions: commonNavigationOptions
     }
-)
+);
+
+
+const SettingsStack = createStackNavigator(
+    {
+        Settings: Settings,
+        Profile: Profile,
+        VersionList: WebViewScreen,
+    }, {
+        navigationOptions: commonNavigationOptions
+    }
+);
 
 const PostTab = createStackNavigator({
         PostList: PostList,
@@ -106,7 +109,7 @@ const TabNavigator = createBottomTabNavigator({
                         fontSize: 12,
                         color: focused ? Colors.primaryColor : Colors.tabInactive
                     }}>指数</Text>;
-                }else if (routeName === 'Settings') {
+                } else if (routeName === 'Settings') {
                     return <Text style={{
                         fontSize: 12,
                         color: focused ? Colors.primaryColor : Colors.tabInactive
