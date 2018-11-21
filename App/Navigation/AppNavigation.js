@@ -53,7 +53,7 @@ const SettingsStack = createStackNavigator(
         Settings: Settings,
         Profile: Profile,
         VersionList: WebViewScreen,
-        Feedback: FeedbackScreen
+        Feedback: FeedbackScreen,
     }, {
         navigationOptions: commonNavigationOptions
     }
