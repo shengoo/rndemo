@@ -13,6 +13,7 @@ import PostDetail from "../Containers/PostDetail";
 import Form from '../Containers/LoginForm'
 import Colors from "../Themes/Colors";
 import WebViewScreen from "../Containers/WebViewScreen";
+import FeedbackScreen from "../Containers/FeedbackScreen";
 
 
 const commonNavigationOptions = {
@@ -52,6 +53,7 @@ const SettingsStack = createStackNavigator(
         Settings: Settings,
         Profile: Profile,
         VersionList: WebViewScreen,
+        Feedback: FeedbackScreen
     }, {
         navigationOptions: commonNavigationOptions
     }

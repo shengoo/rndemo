@@ -4,18 +4,14 @@ import {connect} from "react-redux";
 // import {Button,} from 'antd-mobile-rn'
 import GithubActions from '../Redux/GithubRedux'
 import Colors from "../Themes/Colors";
+import ShareButton from "../Components/ShareButton";
 
 
 class Home extends React.Component {
     static navigationOptions = {
         title: 'Home',
         headerRight: (
-            <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-                onClick={() => alert('This is a button!')}
-                style={{color: Colors.text}}
-            >Info</Button>
+            <ShareButton />
         ),
     };
     render() {

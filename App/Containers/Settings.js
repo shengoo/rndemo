@@ -1,13 +1,19 @@
 import React from "react";
-import {Text, View, TouchableOpacity, ScrollView, SectionList, Image } from "react-native";
+import {Text, View, TouchableOpacity, ScrollView, SectionList, Image, Share } from "react-native";
 import { List, SwipeAction} from 'antd-mobile-rn'
 const Item = List.Item;
 
 import {MyInfoBasic} from "../Components";
-import RightArrow from "../Components/RightArrow";
+import ShareButton from "../Components/ShareButton";
 
 
 class Settings extends React.Component {
+    static navigationOptions = {
+        title: '我的',
+        headerRight: (
+            <ShareButton />
+        ),
+    };
     constructor(props: any) {
         super(props);
     }
@@ -55,9 +61,11 @@ class Settings extends React.Component {
                     <Item
                         thumb="data:image/png;base64,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"
                         arrow="horizontal"
-                        onClick={() => {}}
+                        onClick={() => {
+                            this.props.navigation.navigate('Feedback');
+                        }}
                     >
-                        企鹅
+                        反馈表单
                     </Item>
                     <Item
                         thumb="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAHyUlEQVRoQ+1ZWWgUWRQ91Us6i9FO4r7GURCXD42giBPTnSj+jWRcRkX0Q1RwQXH7VkRF/fAruIEK+VJkAkYRFcH5GPVrZozZdIiCkIwmMTFp00lv9Yb7ql71q+rqdRxmhDQU6XTf9945555736tqBd/4S/nG8WOUwH+dwdEM/C8y8Fd9vS/6/v3taGfnBESjyF+6FOM2b4aSl/ev4GOMZTWvGomg/+pVBJ8+heLxwD1nzse88vIfp+3b90zpqq+vDD1//ku0pyduJ8bgmj4dpfv3wz11alaL5RKcilC0sxMfT55EpKMD0IkTffeUKWzMmjXfK+9PnOgOtbRMMC1MgYxxtt5du1C4fHkuuDIakwr80LNn+HTuHNjQEJiq8vmM3DFGuLqUjh07mBoMxhcT6RUDKHDtWpRs2wbF4cgIVDZBdgQIbN+1a/hy5w4XksdI6vP5VRWOwkIobQcPMqWrC06xqggWA3QieXPnouzQIThLS7PBlzbWSkDt60P36dMIvXrFQXLVbdSPqSoic+ZAaaupYWzePLBPn5BHgQTcMpBPwhicY8ei5MABFCxalBZYJgFW8CNNTeg9cwaxvj4Nh0VEYZ+ww4HQtGkIvHmjEaDFouPHgxUUID8QgGIdKGxFdaEoGLtpE8bW1maCMWWMTGDg1i0M3LypqS25QFafgIa8XgzFYgh1d3NRDQK00ojTCWXWLOT39sIhtTrDgxKR/CVLUHbwIPdhLi8BngWD6Dl/HsMvXpiAW9WPMYbQzJn4/O4dWCTClyShTQRo0LCqIlZejsJAAO5YTCsgzUNGSoXFnBMmYPyxY8ibPTtrDjRv5O1bdJ86heiHD4ZtTerra0ZcLgQnTkSgo8M4vAmXJBAgJMOxGMacPInQjRtwf/6sWcqOCCngdsO7cyfGrF6dMQkCH3j4EJ8vXYIaCiUqr6+lUqFOmoSy48fRtnevAZ56Ic3hUJTEDAi1y27dQqCnB8H6erhaWmA0UL3ArYQK/H6U7d7N945ULxYKobeuDkOPHydkVFafugxbtgyTjx6Fo6gIv9XU8HgZPLeRKGITIADT797F8PAwv4KPHkFtbIRL6lBGvLRfuGfN4mrlJdm9w52d6D17FmHaVYUt9Z4ug484ncjfuhWlGzfypkEvIiDqUhwZzDUgW0QnwO2kk6CtPHjtGjyDg+aasGw0VNTUaotWrDAlgu+qFy9C/fLFDF7ed6guysrgPXIEhQsXGuBpwB/V1Vrh6rPSX8qGlgELeIqhDIjXyMgIJ6IGAghcvw5nayucpIykvtE1aC5qtevWwbtjB5+i//p1BBoaeLx8FOBf6m2T/M4qKjDxyBE4iotN4CkLv/v93PO8dQrwSQkwhumNjSYFBQkCOvTggWYp0aWsLVcH5lmwgPs21NISPxLI1tHVjyoKPFu2oHTDBk5e2IYrroNuqqmJg6cYnYjSVl0dP9tKmbASoMmIBF30Cr1+jaGrV+EZGIjvmNZOZbGHnfoRrxclR4+iYOFCzSK6563vX5KFROfRwWtFLAhYa8CSAdlORIIWig0OYuDyZbja243uYNhC2ENX3LSfkHOodhYt0iwzblxK8PRlU3U1tw6/dKxaEWdJQGQiRP1bn3CwoQGxe/fgtBwDTJuSUIAxcMusX4/SzZu5ZVIpL4a9EgQEeF0YjYDkYfHezkJyUVBRR/QtnT4fbm5G8MoVuMlSwue6hWT1w8XFGHfoEMYsXmxMl8w2IoC+f+X3ax1I2MfYyGQC4hDHGGbcuyfjtX1PVgqHw4Zvo/39GKirg4MsJZ8mGQMdjNn8+Rh/+DBcJSVZgafgZr9fy5SOkbdQXgN+f0IRk2KZEBB2kjNBCg3cvo1IYyPcuqXCADy1tSjdssV0U5SJ8oIpEUgAbyJgaYWZEhAkotGocfAjYMGXLxGoq+N93nvgAAorKpJ2GJmIbBv5fbPPl6QLiQxI9qGB2RCgeCpq2U70mdrfD4fDwe/ikqktPhf9PllBN1dVaYc3cYzW2WkWstmIsiUgSAg7OZ3GTWpG4LX61G6Y7LLQ6vMlgjcsZFGfCM24fz9tEdsFUCboWJDMCtbPBeBU4CmmtaoqkQA/Tvt80gYZv3nJhQAtRJYhK1ntZKesnfeTWaiNCMg7sLCTIGC6wc4hAwRcVpOsJOz0T8ETqXaZgFwLCQR0O2WTAdnvwsv0lwhQd0pmG6G2EC9VobdXVmoWEju3UcQ+H7Oqz7tQBjUgLCPXgvVRCREgInK3kQllAp7iXxMBK3hexDIBqRulI2BVXYCye9JGJOiyUzhd8Yp536xaFf81Rj5Ot1ZVJR6n02QgG/ACQCwWM+yUaeeRM/WmslL7V/I/P04YBOQDXQoCycDL3k/WfykLcouV49JtdH9WVoJZwHM+LWvWMCUcjj8h0Ge1Woi6DF3JniZn+szfjkQ68ARJWIjfTuq3rfQERGndvbsL7e1TrKoJAnaFaqdwpgRoLNmJrmQ93+5zspAJPADXsmUjStuFCysiT5786goGTb+XCQIulyup6qm6TzIbyTWRzY5NFhLPpghotKgIJXv2/MBBcxLt7T9H376dzJ870kbW0GDcUKcDk+v3lAUikcmO/G7tWr6M0+NBfkXFcPHKlT99t3174+ivlLmq/7XGjWbgaymZ6zyjGchVua817m/Ac/y9Jmh3NwAAAABJRU5ErkJggg=="
@@ -90,9 +98,17 @@ class Settings extends React.Component {
                     <Item
                         thumb="data:image/png;base64,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"
                         arrow="horizontal"
-                        onClick={() => {}}
+                        onClick={() => {
+                            Share.share(
+                                {
+                                    title: 'title',
+                                    message: 'message',
+                                    url: 'http://www.baidu.com'
+                                }
+                            )
+                        }}
                     >
-                        Line
+                        分享APP
                     </Item>
                 </List>
                 {/*<List renderHeader={() => 'swipe'}>*/}
