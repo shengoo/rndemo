@@ -7,6 +7,7 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFF',
         padding: 40,
+        justifyContent: 'center'
     },
     input: {
         height: 50,

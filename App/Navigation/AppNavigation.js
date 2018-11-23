@@ -54,10 +54,29 @@ const SettingsStack = createStackNavigator(
         Profile: Profile,
         VersionList: WebViewScreen,
         Feedback: FeedbackScreen,
+        LoginModal: {
+            screen: Form,
+            mode: 'modal'
+        },
     }, {
         navigationOptions: commonNavigationOptions
     }
 );
+
+const SettingsRootStack = createStackNavigator(
+    {
+        Main: {
+            screen: SettingsStack,
+        },
+        LoginModal: {
+            screen: Form
+        },
+    },
+    {
+        mode: 'modal',
+        // headerMode: 'none',
+    }
+)
 
 const PostTab = createStackNavigator({
         PostList: PostList,

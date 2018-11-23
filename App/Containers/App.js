@@ -6,6 +6,8 @@ import createStore from '../Redux'
 
 const store = createStore()
 
+console.log(store.getState())
+
 class App extends Component {
     render () {
         return (

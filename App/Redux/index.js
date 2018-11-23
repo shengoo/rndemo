@@ -7,6 +7,7 @@ export const reducers = combineReducers({
     github: require('./GithubRedux').reducer,
     posts: require('./PostsRedux').postReducer,
     form: formReducer,
+    user: require('./UserRedux').reducer,
 })
 
 export default () => {

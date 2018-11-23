@@ -1,6 +1,7 @@
 import {call, put} from 'redux-saga/effects'
 import {path} from 'ramda'
 import GithubActions from '../Redux/GithubRedux'
+console.log(GithubActions)
 
 export function* getUsers(api, action) {
     const {lastUserId} = action

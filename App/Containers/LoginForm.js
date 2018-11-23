@@ -6,6 +6,9 @@ import {Toast} from 'antd-mobile-rn'
 import styles from './Styles/LoginFormStyle'
 import Colors from "../Themes/Colors";
 import {connect} from "react-redux";
+import {fetchPosts} from "../Redux/PostsRedux";
+import UserAction from "../Redux/UserRedux";
+import GithubActions from "../Redux/GithubRedux";
 
 
 class LoginForm extends React.Component {
@@ -42,7 +45,9 @@ class LoginForm extends React.Component {
             .then(response => response.json())
             .then(responseJson => {
                 if (responseJson.code === 100000) {
+                    this.props.loginSuccess(responseJson.data);
                     Toast.success(`登陆成功：${responseJson.data.name}`, 1)
+                    this.props.navigation.goBack()
                 } else {
                     Toast.fail(responseJson.msg || '登陆失败', 1)
                 }
@@ -58,6 +63,7 @@ class LoginForm extends React.Component {
         console.log(this.props)
         return (
             <View style={styles.form}>
+                <View>
                 <TextInput
                     style={styles.input}
                     placeholder="请输入手机号"
@@ -80,16 +86,21 @@ class LoginForm extends React.Component {
                 >
                     <Text style={styles.buttonText}>登陆</Text>
                 </TouchableOpacity>
+                </View>
             </View>
         )
     }
 }
 
-export default LoginForm
+// export default LoginForm
 
-// LoginForm = reduxForm({
-//     // a unique name for the form
-//     form: 'login'
-// })(LoginForm)
-//
-// export default connect(state => ({formData: state.form}), null)(LoginForm)
+const dispatchToProps = (dispatch) => {
+    console.log(UserAction)
+    console.log(GithubActions)
+    return {
+    loginSuccess: (data) => dispatch(UserAction.loginSuccess(data)),
+        fetchUsers: () => dispatch(GithubActions.userRequest()),
+}
+};
+
+export default connect(null, dispatchToProps)(LoginForm)
