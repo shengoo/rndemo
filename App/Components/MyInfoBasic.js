@@ -1,14 +1,15 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, TouchableHighlight} from "react-native";
+import {Text, View, Image, TouchableOpacity, TouchableHighlight} from "react-native";
 import styles from './Styles/MyInfoBasicStyle'
 import RightArrow from "./RightArrow";
 import NavigationService from "../Navigation/NavigationService";
 
-export default ({user}) => (
+export default ({user, logout}) => (
     <TouchableOpacity
         style={styles.container}
         onPress={() => {
-            if(!user.loggedIn){
+            console.log('press outside')
+            if (!user.loggedIn) {
                 NavigationService.navigate('LoginModal')
             }
         }}
@@ -19,12 +20,27 @@ export default ({user}) => (
         />
         {
             user.loggedIn ? (
-                <Text style={styles.name}>{user.info.name}</Text>
+                <View
+                    style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                    }}
+                >
+                    <Text style={styles.name}>{user.info.name}</Text>
+                    <TouchableOpacity
+                        onPress={() => {
+                            logout();
+                        }}
+                    >
+                        <Text style={styles.name}>注销</Text>
+                    </TouchableOpacity>
+                </View>
+
             ) : (
                 <Text style={styles.name}>点击登陆</Text>
             )
         }
 
-        <RightArrow />
+        <RightArrow/>
     </TouchableOpacity>
 )

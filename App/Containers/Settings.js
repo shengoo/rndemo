@@ -6,6 +6,7 @@ const Item = List.Item;
 
 import {MyInfoBasic} from "../Components";
 import ShareButton from "../Components/ShareButton";
+import UserAction from "../Redux/UserRedux";
 
 
 class Settings extends React.Component {
@@ -19,7 +20,7 @@ class Settings extends React.Component {
         super(props);
     }
     render() {
-        const {user} = this.props;
+        const {user, logout} = this.props;
         console.log(user)
         const right = [
             {
@@ -47,7 +48,10 @@ class Settings extends React.Component {
         ];
         return (
             <ScrollView style={{ flex: 1, paddingTop: 10, paddingBottom: 10, }}>
-                <MyInfoBasic user={user} />
+                <MyInfoBasic
+                    user={user}
+                    logout={logout}
+                />
                 <List renderHeader={() => 'menu'}>
                     <Item
                         thumb='data:image/png;base64,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'
@@ -166,5 +170,10 @@ const stateToProps = state => {
     }
 };
 
+
+const dispatchToProps = (dispatch) => ({
+    logout: () => dispatch(UserAction.logout()),
+});
+
 // export default Settings
-export default connect(stateToProps)(Settings)
+export default connect(stateToProps, dispatchToProps)(Settings)

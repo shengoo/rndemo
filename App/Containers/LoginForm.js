@@ -94,13 +94,8 @@ class LoginForm extends React.Component {
 
 // export default LoginForm
 
-const dispatchToProps = (dispatch) => {
-    console.log(UserAction)
-    console.log(GithubActions)
-    return {
+const dispatchToProps = (dispatch) => ({
     loginSuccess: (data) => dispatch(UserAction.loginSuccess(data)),
-        fetchUsers: () => dispatch(GithubActions.userRequest()),
-}
-};
+});
 
 export default connect(null, dispatchToProps)(LoginForm)

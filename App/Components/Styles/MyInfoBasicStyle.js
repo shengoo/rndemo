@@ -15,6 +15,7 @@ export default StyleSheet.create({
     },
     name: {
         paddingLeft: 10,
+        paddingRight: 10,
         flex: 1,
     }
 })

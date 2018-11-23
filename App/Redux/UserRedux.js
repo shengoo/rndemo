@@ -1,10 +1,13 @@
+import {AsyncStorage} from "react-native";
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
+import Constants from "../Utils/Constants";
 
 
 const { Types, Creators } = createActions({
     // loginRequest: ['username', 'password'],
     loginSuccess: ['user'],
+    logout: null,
     // loginFailure: ['error'],
     // logoutRequest: null,
     // logoutSuccess: null,
@@ -19,15 +22,19 @@ export const INITIAL_STATE = Immutable({
 })
 
 export const loginSuccess = (state, action) => {
-    console.log('loginSuccess')
-    return state.merge({loggedIn: true, info: action.user})
+    const result = state.merge({loggedIn: true, info: action.user})
+    AsyncStorage.setItem(Constants.STORAGE_KEY_USER_INFO,JSON.stringify(result));
+    return result
 }
 
 export const logout = (state, action) => {
-    return state.merge({loggedIn: false, info: null})
+    const result = state.merge({loggedIn: false, info: null});
+    AsyncStorage.setItem(Constants.STORAGE_KEY_USER_INFO,JSON.stringify(result));
+    return result
 }
 
 
 export const reducer = createReducer(INITIAL_STATE, {
     [Types.LOGIN_SUCCESS]: loginSuccess,
+    [Types.LOGOUT]: logout,
 })

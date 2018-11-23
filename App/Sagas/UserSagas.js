@@ -5,3 +5,7 @@ console.log(UserAction)
 export function* loginSuccess(action) {
      put(UserAction.loginSuccess(action.user))
 }
+
+export function* logout() {
+    put(UserAction.logout())
+}
