@@ -24,7 +24,10 @@ const commonNavigationOptions = {
     headerTitleStyle: {
         fontWeight: 'bold',
     },
-    headerBackTitle: '返回'
+    headerBackTitle: '返回',
+    cardStyle: {
+        // backgroundColor: 'red'
+    }
 }
 
 
