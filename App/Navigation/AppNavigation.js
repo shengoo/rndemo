@@ -57,29 +57,13 @@ const SettingsStack = createStackNavigator(
         Profile: Profile,
         VersionList: WebViewScreen,
         Feedback: FeedbackScreen,
-        LoginModal: {
-            screen: Form,
-            mode: 'modal'
-        },
     }, {
-        navigationOptions: commonNavigationOptions
+        navigationOptions: commonNavigationOptions,
+        // mode: 'modal',
+        // headerMode: 'none',
     }
 );
 
-const SettingsRootStack = createStackNavigator(
-    {
-        Main: {
-            screen: SettingsStack,
-        },
-        LoginModal: {
-            screen: Form
-        },
-    },
-    {
-        mode: 'modal',
-        // headerMode: 'none',
-    }
-)
 
 const PostTab = createStackNavigator({
         PostList: PostList,
@@ -108,12 +92,12 @@ const WebViewTab = createStackNavigator({
 
 
 const TabNavigator = createBottomTabNavigator({
-        Settings: SettingsStack,
         Home: HomeStack,
         // WebView: WebViewTab,
         // Form: FormTab,
         // PostTab: PostTab,
         List: UserListTab,
+        Settings: SettingsStack,
         // UserList: UserListTab,
     }, {
         tabBarOptions: {
@@ -152,4 +136,13 @@ const TabNavigator = createBottomTabNavigator({
     }
 );
 
-export default TabNavigator
+const Root = createStackNavigator({
+    Home: TabNavigator,
+    LoginModal: Form
+}, {
+    mode: 'modal',
+    headerMode: 'none',
+})
+
+
+export default Root

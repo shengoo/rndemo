@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TextInput, TouchableOpacity, Text,} from 'react-native'
+import {View, TextInput, TouchableOpacity, Text, Button} from 'react-native'
 import {Field, reduxForm} from 'redux-form'
 import {Toast} from 'antd-mobile-rn'
 
@@ -64,28 +64,32 @@ class LoginForm extends React.Component {
         return (
             <View style={styles.form}>
                 <View>
-                <TextInput
-                    style={styles.input}
-                    placeholder="请输入手机号"
-                    onChangeText={(username) => this.setState({username})}
-                    keyboardType='numeric'
-                    textContentType='telephoneNumber'
-                    value={this.state.username}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="请输入密码"
-                    onChangeText={(password) => this.setState({password})}
-                    textContentType='password'
-                    secureTextEntry
-                    value={this.state.password}
-                />
-                <TouchableOpacity
-                    style={styles.loginButton}
-                    onPress={this.login}
-                >
-                    <Text style={styles.buttonText}>登陆</Text>
-                </TouchableOpacity>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="请输入手机号"
+                        onChangeText={(username) => this.setState({username})}
+                        keyboardType='numeric'
+                        textContentType='telephoneNumber'
+                        value={this.state.username}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="请输入密码"
+                        onChangeText={(password) => this.setState({password})}
+                        textContentType='password'
+                        secureTextEntry
+                        value={this.state.password}
+                    />
+                    <TouchableOpacity
+                        style={styles.loginButton}
+                        onPress={this.login}
+                    >
+                        <Text style={styles.buttonText}>登陆</Text>
+                    </TouchableOpacity>
+                    <Button
+                        onPress={() => this.props.navigation.goBack()}
+                        title="返回"
+                    />
                 </View>
             </View>
         )
