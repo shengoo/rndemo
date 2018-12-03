@@ -17,10 +17,10 @@ import FeedbackScreen from "../Containers/FeedbackScreen";
 
 
 const commonNavigationOptions = {
-    headerStyle: {
-        backgroundColor: Colors.primaryColor,
-    },
-    headerTintColor: Colors.text,
+    // headerStyle: {
+    //     backgroundColor: Colors.primaryColor,
+    // },
+    // headerTintColor: Colors.text,
     headerTitleStyle: {
         fontWeight: 'bold',
     },
