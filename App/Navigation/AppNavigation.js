@@ -1,6 +1,12 @@
 import React from "react";
 import {Text} from 'react-native';
-import {createBottomTabNavigator, createStackNavigator} from "react-navigation";
+import {
+    createBottomTabNavigator,
+    createStackNavigator,
+    createAppContainer,
+    createSwitchNavigator,
+} from "react-navigation";
+console.log(createSwitchNavigator)
 
 import Home from "../Containers/Home";
 import Details from "../Containers/Details";
@@ -14,6 +20,7 @@ import Form from '../Containers/LoginForm'
 import Colors from "../Themes/Colors";
 import WebViewScreen from "../Containers/WebViewScreen";
 import FeedbackScreen from "../Containers/FeedbackScreen";
+import AuthLoadingScreen from '../Containers/AuthLoadingScreen';
 
 
 const commonNavigationOptions = {
@@ -40,7 +47,7 @@ const HomeStack = createStackNavigator(
     }
 );
 
-const UserListTab = createStackNavigator(
+const UserListStack = createStackNavigator(
     {
         UserList: UserList,
         UserDetail: UserDetail
@@ -65,7 +72,7 @@ const SettingsStack = createStackNavigator(
 );
 
 
-const PostTab = createStackNavigator({
+const PostStack = createStackNavigator({
         PostList: PostList,
         PostDetail: PostDetail,
     },
@@ -74,7 +81,7 @@ const PostTab = createStackNavigator({
     }
 )
 
-const FormTab = createStackNavigator({
+const FormStack = createStackNavigator({
         // Chart: LineChart,
         Form: Form
     },
@@ -94,11 +101,11 @@ const WebViewTab = createStackNavigator({
 const TabNavigator = createBottomTabNavigator({
         Home: HomeStack,
         // WebView: WebViewTab,
-        // Form: FormTab,
-        // PostTab: PostTab,
-        List: UserListTab,
+        // Form: FormStack,
+        // PostStack: PostStack,
+        List: UserListStack,
         Settings: SettingsStack,
-        // UserList: UserListTab,
+        // UserList: UserListStack,
     }, {
         tabBarOptions: {
             activeTintColor: Colors.primaryColor,
@@ -143,6 +150,17 @@ const Root = createStackNavigator({
     mode: 'modal',
     headerMode: 'none',
 })
-
-
 export default Root
+
+const AppStack = HomeStack;
+const AuthStack = createStackNavigator({ SignIn: Form });
+// export default createAppContainer(createSwitchNavigator(
+//   {
+//     AuthLoading: AuthLoadingScreen,
+//     App: AppStack,
+//     Auth: AuthStack,
+//   },
+//   {
+//     initialRouteName: 'AuthLoading',
+//   }
+// ));
