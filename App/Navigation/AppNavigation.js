@@ -110,36 +110,36 @@ const TabNavigator = createBottomTabNavigator({
             activeTintColor: Colors.primaryColor,
             inactiveTintColor: 'gray',
         },
-        // navigationOptions: ({navigation}) => ({
-        //     tabBarLabel: ({focused}) => {
-        //         console.log(navigation)
-        //         const {routeName} = navigation.state;
-        //         if (routeName === 'Home') {
-        //             return <Text style={{
-        //                 fontSize: 12,
-        //                 color: focused ? Colors.primaryColor : Colors.tabInactive
-        //             }}>首页</Text>;
-        //         } else if (routeName === 'List') {
-        //             return <Text style={{
-        //                 fontSize: 12,
-        //                 color: focused ? Colors.primaryColor : Colors.tabInactive
-        //             }}>指数</Text>;
-        //         } else if (routeName === 'Settings') {
-        //             return <Text style={{
-        //                 fontSize: 12,
-        //                 color: focused ? Colors.primaryColor : Colors.tabInactive
-        //             }}>我的</Text>;
-        //         }
-        //         return null;
-        //     },
-        //     headerStyle: {
-        //         backgroundColor: Colors.primaryColor,
-        //     },
-        //     headerTintColor: Colors.text,
-        //     headerTitleStyle: {
-        //         fontWeight: 'bold',
-        //     },
-        // }),
+        navigationOptions: ({navigation}) => ({
+            tabBarLabel: ({focused}) => {
+                console.log(navigation)
+                const {routeName} = navigation.state;
+                if (routeName === 'Home') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>首页</Text>;
+                } else if (routeName === 'List') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>指数</Text>;
+                } else if (routeName === 'Settings') {
+                    return <Text style={{
+                        fontSize: 12,
+                        color: focused ? Colors.primaryColor : Colors.tabInactive
+                    }}>我的</Text>;
+                }
+                return null;
+            },
+            headerStyle: {
+                backgroundColor: Colors.primaryColor,
+            },
+            headerTintColor: Colors.text,
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+        }),
     }
 );
 
