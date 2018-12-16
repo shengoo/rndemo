@@ -1,6 +1,5 @@
 import React from 'react'
 import {View, TextInput, TouchableOpacity, Text, Button} from 'react-native'
-import {Field, reduxForm} from 'redux-form'
 import {Toast} from 'antd-mobile-rn'
 
 import styles from './Styles/LoginFormStyle'

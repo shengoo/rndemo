@@ -1,5 +1,5 @@
 {
-  "name": "ke-native-template",
+  "name": "NativeTemplate",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,30 +7,27 @@
     "test": "jest"
   },
   "dependencies": {
-    "antd-mobile-rn": "^2.3.0",
-    "apisauce": "^1.0.0",
-    "prop-types": "latest",
-    "ramda": "^0.25.0",
-    "ramdasauce": "^2.1.0",
+    "antd-mobile-rn": "^2.3.3",
+    "apisauce": "^1.0.1",
     "react": "16.6.3",
-    "react-native": "0.57.7",
-    "react-native-responsive-linechart": "^1.4.8",
-    "react-native-webview": "^2.8.1",
-    "react-navigation": "^3.0.5",
-    "react-redux": "^5.0.7",
+    "react-native": "0.57.8",
+    "react-native-device-info": "^0.24.3",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-native-webview": "^2.14.3",
+    "react-navigation": "^3.0.8",
+    "react-redux": "^6.0.0",
     "redux": "^4.0.1",
-    "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0",
-    "reduxsauce": "^1.0.0",
+    "reduxsauce": "^1.0.1",
     "seamless-immutable": "^7.1.4"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.48.1",
-    "react-test-renderer": "16.6.0-alpha.8af6728"
+    "metro-react-native-babel-preset": "0.48.5",
+    "react-test-renderer": "16.6.3"
   },
   "jest": {
     "preset": "react-native"

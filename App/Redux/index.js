@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
-import { reducer as formReducer } from 'redux-form'
 
 export const reducers = combineReducers({
     github: require('./GithubRedux').reducer,
     posts: require('./PostsRedux').postReducer,
-    form: formReducer,
     user: require('./UserRedux').reducer,
 })
 

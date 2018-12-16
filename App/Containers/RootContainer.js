@@ -50,4 +50,5 @@ const dispatchToProps = (dispatch) => ({
     loginSuccess: (data) => dispatch(UserAction.loginSuccess(data)),
 });
 
-export default connect(null,dispatchToProps)(RootContainer)
+// export default connect(null,dispatchToProps)(RootContainer)
+export default RootContainer
