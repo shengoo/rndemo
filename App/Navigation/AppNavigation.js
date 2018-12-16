@@ -20,6 +20,7 @@ import Colors from "../Themes/Colors";
 import WebViewScreen from "../Containers/WebViewScreen";
 import FeedbackScreen from "../Containers/FeedbackScreen";
 import AuthLoadingScreen from '../Containers/AuthLoadingScreen';
+import ThemeChooseScreen from '../Containers/ThemeChooseScreen';
 
 
 const commonNavigationOptions = {
@@ -63,6 +64,7 @@ const SettingsStack = createStackNavigator(
         Profile: Profile,
         VersionList: WebViewScreen,
         Feedback: FeedbackScreen,
+        ThemeChoose: ThemeChooseScreen,
     }, {
         navigationOptions: commonNavigationOptions,
         // mode: 'modal',
