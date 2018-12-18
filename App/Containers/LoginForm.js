@@ -1,11 +1,11 @@
 import React from 'react'
-import {View, TextInput, TouchableOpacity, Text, Button} from 'react-native'
-import {Toast} from '@ant-design/react-native'
+import { View, TextInput, TouchableOpacity, Text, Button } from 'react-native'
+import { Toast } from '@ant-design/react-native'
 
 import styles from './Styles/LoginFormStyle'
 import Colors from "../Themes/Colors";
-import {connect} from "react-redux";
-import {fetchPosts} from "../Redux/PostsRedux";
+import { connect } from "react-redux";
+import { fetchPosts } from "../Redux/PostsRedux";
 import UserAction from "../Redux/UserRedux";
 import GithubActions from "../Redux/GithubRedux";
 import Video from 'react-native-video';
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
     }
 
     login = () => {
-        const {username, password} = this.state;
+        const { username, password } = this.state;
         if (!username || !password) {
             Toast.fail('用户名或密码不能为空')
             return;
@@ -84,20 +84,20 @@ class LoginForm extends React.Component {
                     <TextInput
                         style={styles.input}
                         placeholder="请输入手机号"
-                        onChangeText={(username) => this.setState({username})}
+                        onChangeText={(username) => this.setState({ username })}
                         keyboardType='numeric'
                         textContentType='telephoneNumber'
                         placeholderTextColor='#fff'
-                        // value={this.state.username}
+                    // value={this.state.username}
                     />
                     <TextInput
                         style={styles.input}
                         placeholder="请输入密码"
-                        onChangeText={(password) => this.setState({password})}
+                        onChangeText={(password) => this.setState({ password })}
                         textContentType='password'
                         secureTextEntry
                         placeholderTextColor='#fff'
-                        // value={this.state.password}
+                    // value={this.state.password}
                     />
                     <TouchableOpacity
                         style={styles.loginButton}
