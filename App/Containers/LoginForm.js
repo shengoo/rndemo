@@ -25,38 +25,14 @@ class LoginForm extends React.Component {
     }
 
     login = () => {
+        console.log('login')
         const { username, password } = this.state;
         if (!username || !password) {
-            Toast.fail('用户名或密码不能为空')
+            console.log('toast')
+            Toast.fail('用户名或密码不能为空', 1)
             return;
         }
-        fetch('http://127.0.0.1:3000/api/account/login',
-            {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                    "app-id": "odin-app",
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                }),
-            })
-            .then(response => response.json())
-            .then(responseJson => {
-                if (responseJson.code === 100000) {
-                    this.props.loginSuccess(responseJson.data);
-                    Toast.success(`登陆成功：${responseJson.data.name}`, 1)
-                    this.props.navigation.goBack()
-                } else {
-                    Toast.fail(responseJson.msg || '登陆失败', 1)
-                }
-                console.log(responseJson)
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-        Toast.loading(`登陆ing`, 0)
+        Toast.loading(`登陆ing`)
     }
 
     render() {

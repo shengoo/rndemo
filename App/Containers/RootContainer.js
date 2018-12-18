@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {View, StatusBar, AsyncStorage} from 'react-native'
 import {connect} from 'react-redux'
-
+import {
+    Provider,
+  } from '@ant-design/react-native';
 import NavigationService from '../Navigation/NavigationService'
 
 // Styles
@@ -34,14 +36,14 @@ class RootContainer extends Component {
 
     render () {
         return (
-            <View style={styles.applicationView}>
+            <Provider style={styles.applicationView}>
                 <StatusBar barStyle='dark-content' />
                 <AppNavigation
                     ref={navigatorRef => {
                         NavigationService.setTopLevelNavigator(navigatorRef);
                     }}
                 />
-            </View>
+            </Provider>
         )
     }
 }
