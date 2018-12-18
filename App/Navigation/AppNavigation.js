@@ -147,10 +147,11 @@ const TabNavigator = createBottomTabNavigator({
 
 const Root = createStackNavigator({
     Home: TabNavigator,
-    LoginModal: Form
+    LoginModal: Form,
 }, {
     mode: 'modal',
     headerMode: 'none',
+    // initialRouteName: 'LoginModal',
 })
 // export default Root
 
@@ -161,6 +162,6 @@ export default createAppContainer(createSwitchNavigator(
     Auth: Form,
   },
   {
-    //initialRouteName: 'AuthLoading',
+    // initialRouteName: 'AuthLoading',
   }
 ));

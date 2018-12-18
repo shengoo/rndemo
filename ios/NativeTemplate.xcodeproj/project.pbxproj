@@ -43,6 +43,7 @@
 		F7E9C39D4D9E4F90AB806D46 /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C821FD9FF68B41238F067638 /* libRNCWebView.a */; };
 		3100BB0CC9B74786AECBAF13 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE65C30599DC4BCA93C95C4B /* antfill.ttf */; };
 		928442963B9344BA8A11AC79 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 535F9E4E1B2E4AEFBAF51251 /* antoutline.ttf */; };
+		FD336B20222B410884910108 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 321C2738CBCC4DD99D2009C9 /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +358,8 @@
 		C821FD9FF68B41238F067638 /* libRNCWebView.a */ = {isa = PBXFileReference; name = "libRNCWebView.a"; path = "libRNCWebView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		DE65C30599DC4BCA93C95C4B /* antfill.ttf */ = {isa = PBXFileReference; name = "antfill.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		535F9E4E1B2E4AEFBAF51251 /* antoutline.ttf */ = {isa = PBXFileReference; name = "antoutline.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		82232EE5343E4365A8B35B93 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		321C2738CBCC4DD99D2009C9 /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +390,7 @@
 				298245A2BD554B61A2BDB6ED /* libRNDeviceInfo.a in Frameworks */,
 				AA1C203FD137428887273854 /* libRNGestureHandler.a in Frameworks */,
 				F7E9C39D4D9E4F90AB806D46 /* libRNCWebView.a in Frameworks */,
+				FD336B20222B410884910108 /* libRCTVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +581,7 @@
 				7895B19310784104AD6EECDB /* RNDeviceInfo.xcodeproj */,
 				821D8F98D558476CA64B342E /* RNGestureHandler.xcodeproj */,
 				D4FC8CAFF91744948D8D2629 /* RNCWebView.xcodeproj */,
+				82232EE5343E4365A8B35B93 /* RCTVideo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1221,12 +1226,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Debug;
@@ -1252,12 +1259,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Release;
@@ -1283,6 +1292,7 @@
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Debug;
@@ -1307,6 +1317,7 @@
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Release;
@@ -1340,12 +1351,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Debug;
@@ -1379,12 +1392,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Release;
@@ -1417,12 +1432,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Debug;
@@ -1455,12 +1472,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios/**",
 				);
 			};
 			name = Release;

@@ -6,7 +6,7 @@ export default StyleSheet.create({
     form: {
         flex: 1,
         backgroundColor: '#FFF',
-        padding: 40,
+        padding: 30,
         justifyContent: 'center'
     },
     input: {
@@ -14,7 +14,9 @@ export default StyleSheet.create({
         borderWidth: 1,
         marginBottom: 10,
         borderColor: Colors.borderColor,
-        paddingLeft: 16
+        paddingLeft: 16,
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        color: '#fff',
     },
     loginButton: {
         height: 50,

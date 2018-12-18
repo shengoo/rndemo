@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import {fetchPosts} from "../Redux/PostsRedux";
 import UserAction from "../Redux/UserRedux";
 import GithubActions from "../Redux/GithubRedux";
+import Video from 'react-native-video';
 
 
 class LoginForm extends React.Component {
@@ -62,13 +63,31 @@ class LoginForm extends React.Component {
         console.log(this.props)
         return (
             <View style={styles.form}>
-                <View>
+                <Video source={require('../assets/background.mp4')}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                    }}
+                    rate={1} volume={1}
+                    muted={true}
+                    resizeMode="cover" repeat={true} key="video1" />
+                <View
+                    style={{
+                        backgroundColor: 'rgba(0,0,0,0.2)',
+                        padding: 20,
+                        paddingBottom: 10,
+                    }}
+                >
                     <TextInput
                         style={styles.input}
                         placeholder="请输入手机号"
                         onChangeText={(username) => this.setState({username})}
                         keyboardType='numeric'
                         textContentType='telephoneNumber'
+                        placeholderTextColor='#fff'
                         // value={this.state.username}
                     />
                     <TextInput
@@ -77,6 +96,7 @@ class LoginForm extends React.Component {
                         onChangeText={(password) => this.setState({password})}
                         textContentType='password'
                         secureTextEntry
+                        placeholderTextColor='#fff'
                         // value={this.state.password}
                     />
                     <TouchableOpacity
