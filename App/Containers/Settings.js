@@ -1,6 +1,6 @@
 import React from "react";
 import {Text, View, TouchableOpacity, ScrollView, SectionList, Image, Share } from "react-native";
-import { List, SwipeAction} from 'antd-mobile-rn'
+import { List, SwipeAction} from '@ant-design/react-native'
 import {connect} from "react-redux";
 const Item = List.Item;
 

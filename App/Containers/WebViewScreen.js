@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Text, View, TouchableOpacity, ActivityIndicator} from "react-native";
 import { WebView } from "react-native-webview";
-import {Toast} from 'antd-mobile-rn'
+import {Toast} from '@ant-design/react-native'
 import Colors from "../Themes/Colors";
 
 
@@ -26,7 +26,7 @@ class WebViewScreen extends React.Component {
     }
 
     componentDidMount(){
-        Toast.loading('')
+        Toast.loading('Loading', 1)
     }
 
 
@@ -38,7 +38,7 @@ class WebViewScreen extends React.Component {
     }
     onLoadEnd = () => {
         console.log('onLoadEnd')
-        Toast.hide()
+        // Toast.hide()
     }
     onLoadStart = () => {
         console.log('onLoadStart')
@@ -51,7 +51,7 @@ class WebViewScreen extends React.Component {
             <View style={{ flex: 1, }}>
                 <WebView
                     style={{flex: 1}}
-                    source={{uri: 'http://localhost:3000/'}}
+                    source={{uri: 'http://www.baidu.com/'}}
                     onError={this.onError}
                     onLoad={this.onLoad}
                     onLoadEnd={this.onLoadEnd}

@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, TextInput, TouchableOpacity, Text, Button} from 'react-native'
-import {Toast} from 'antd-mobile-rn'
+import {Toast} from '@ant-design/react-native'
 
 import styles from './Styles/LoginFormStyle'
 import Colors from "../Themes/Colors";
@@ -69,7 +69,7 @@ class LoginForm extends React.Component {
                         onChangeText={(username) => this.setState({username})}
                         keyboardType='numeric'
                         textContentType='telephoneNumber'
-                        value={this.state.username}
+                        // value={this.state.username}
                     />
                     <TextInput
                         style={styles.input}
@@ -77,7 +77,7 @@ class LoginForm extends React.Component {
                         onChangeText={(password) => this.setState({password})}
                         textContentType='password'
                         secureTextEntry
-                        value={this.state.password}
+                        // value={this.state.password}
                     />
                     <TouchableOpacity
                         style={styles.loginButton}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, ScrollView } from "react-native";
-import { Checkbox, List, WhiteSpace, TextareaItem, Button, } from 'antd-mobile-rn'
+import { Checkbox, List, WhiteSpace, TextareaItem, Button, } from '@ant-design/react-native'
 
 import styles from './Styles/FeedbackScreenStyle'
 

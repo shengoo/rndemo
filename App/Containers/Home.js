@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, Button,} from "react-native";
 import {connect} from "react-redux";
-// import {Button,} from 'antd-mobile-rn'
+// import {Button,} from '@ant-design/react-native'
 import GithubActions from '../Redux/GithubRedux'
 import Colors from "../Themes/Colors";
 import ShareButton from "../Components/ShareButton";
